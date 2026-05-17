@@ -1,0 +1,132 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📊 Tableau de Bord</h2>
+
+  <!-- Retours -->
+  <h5 class="text-secondary mb-3">Gestion des Retours</h5>
+  <div class="row mb-4">
+    <div class="col-md-2">
+      <div class="card text-white bg-primary text-center p-3">
+        <h2>{{ totalRetours }}</h2>
+        <p class="mb-0">Total Retours</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-white bg-warning text-center p-3">
+        <h2>{{ retoursEnCours }}</h2>
+        <p class="mb-0">En cours</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-white bg-success text-center p-3">
+        <h2>{{ retoursTraites }}</h2>
+        <p class="mb-0">Traités</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-white bg-danger text-center p-3">
+        <h2>{{ retoursRejetes }}</h2>
+        <p class="mb-0">Rejetés</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-white bg-info text-center p-3">
+        <h2>{{ retoursEnStock }}</h2>
+        <p class="mb-0">En Stock</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-white bg-dark text-center p-3">
+        <h2>{{ stockTotal }}</h2>
+        <p class="mb-0">Stock Total</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Conformités -->
+  <h5 class="text-secondary mb-3">Non-Conformités</h5>
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card text-white bg-secondary text-center p-3">
+        <h2>{{ totalNonConformites }}</h2>
+        <p class="mb-0">Total</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-success text-center p-3">
+        <h2>{{ ncFaible }}</h2>
+        <p class="mb-0">Gravité Faible</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-warning text-center p-3">
+        <h2>{{ ncMoyenne }}</h2>
+        <p class="mb-0">Gravité Moyenne</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-danger text-center p-3">
+        <h2>{{ ncElevee }}</h2>
+        <p class="mb-0">Gravité Élevée</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Utilisateurs -->
+  <h5 class="text-secondary mb-3">Utilisateurs</h5>
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-white bg-primary text-center p-3">
+        <h2>{{ totalUtilisateurs }}</h2>
+        <p class="mb-0">Total Utilisateurs</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-danger text-center p-3">
+        <h2>{{ totalAdmins }}</h2>
+        <p class="mb-0">Admins</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-info text-center p-3">
+        <h2>{{ totalQualite }}</h2>
+        <p class="mb-0">Service Qualité</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historique -->
+  <h5 class="text-secondary mb-3">Historique</h5>
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-white bg-dark text-center p-3">
+        <h2>{{ totalHistoriques }}</h2>
+        <p class="mb-0">Total Actions</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Liens rapides -->
+  <h5 class="text-secondary mb-3">Accès Rapide</h5>
+  <div class="row">
+    <div class="col-md-3">
+      <a routerLink="/retours/ajouter" class="btn btn-primary w-100 mb-2">
+        + Nouveau Retour
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a routerLink="/nonconformites/ajouter" class="btn btn-secondary w-100 mb-2">
+        + Non-Conformité
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a routerLink="/utilisateurs/ajouter" class="btn btn-success w-100 mb-2">
+        + Utilisateur
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a routerLink="/stock" class="btn btn-info w-100 mb-2">
+        Voir le Stock
+      </a>
+    </div>
+  </div>
+</div>

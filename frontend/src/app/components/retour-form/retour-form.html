@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h2>Ajouter un Retour Produit</h2>
+
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+  <div *ngIf="erreur" class="alert alert-danger">{{ erreur }}</div>
+
+  <form (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Produit</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="retour.produit" name="produit" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Client</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="retour.client" name="client" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Raison</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="retour.raison" name="raison" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">État de traitement</label>
+      <select class="form-control"
+              [(ngModel)]="retour.etatTraitement" name="etatTraitement" required>
+        <option value="En cours">En cours</option>
+        <option value="Traité">Traité</option>
+        <option value="Rejeté">Rejeté</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input type="date" class="form-control"
+             [(ngModel)]="retour.date" name="date" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+</div>

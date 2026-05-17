@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h2>Liste des Utilisateurs</h2>
+  <a routerLink="/utilisateurs/ajouter" class="btn btn-success mb-3">+ Ajouter</a>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of utilisateurs">
+        <ng-container *ngIf="userEnEdition?.id !== u.id">
+          <td>{{ u.id }}</td>
+          <td>{{ u.nom }}</td>
+          <td>{{ u.email }}</td>
+          <td><span class="badge bg-primary">{{ u.role }}</span></td>
+          <td>
+            <button class="btn btn-warning btn-sm me-1"
+                    (click)="editer(u)">Modifier</button>
+            <button class="btn btn-danger btn-sm"
+                    (click)="delete(u.id!)">Supprimer</button>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="userEnEdition?.id === u.id">
+          <td>{{ u.id }}</td>
+          <td><input class="form-control" [(ngModel)]="userEnEdition!.nom"></td>
+          <td><input type="email" class="form-control" [(ngModel)]="userEnEdition!.email"></td>
+          <td>
+            <select class="form-control" [(ngModel)]="userEnEdition!.role">
+              <option value="USER">User</option>
+              <option value="ADMIN">Admin</option>
+              <option value="QUALITE">Qualité</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-success btn-sm me-1"
+                    (click)="sauvegarder()">Sauvegarder</button>
+            <button class="btn btn-secondary btn-sm"
+                    (click)="annulerEdition()">Annuler</button>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="utilisateurs.length === 0">Aucun utilisateur trouvé.</p>
+</div>

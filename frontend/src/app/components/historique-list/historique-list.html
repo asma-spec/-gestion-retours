@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>Historique des Retours</h2>
+  <a routerLink="/historiques/ajouter" class="btn btn-success mb-3">+ Ajouter</a>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Retour ID</th>
+        <th>Action</th>
+        <th>Employé</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of historiques">
+        <td>{{ h.id }}</td>
+        <td>{{ h.retourId }}</td>
+        <td>
+          <span class="badge"
+            [class.bg-success]="h.action === 'Validé'"
+            [class.bg-danger]="h.action === 'Rejeté'"
+            [class.bg-warning]="h.action === 'En cours'"
+            [class.bg-info]="h.action === 'Retourné en stock'">
+            {{ h.action }}
+          </span>
+        </td>
+        <td>{{ h.employe }}</td>
+        <td>{{ h.date }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm"
+                  (click)="delete(h.id!)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="historiques.length === 0">Aucun historique trouvé.</p>
+</div>

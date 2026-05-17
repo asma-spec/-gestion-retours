@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2>Ajouter un Utilisateur</h2>
+
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+  <div *ngIf="erreur" class="alert alert-danger">{{ erreur }}</div>
+
+  <form (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="utilisateur.nom" name="nom" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control"
+             [(ngModel)]="utilisateur.email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Rôle</label>
+      <select class="form-control"
+              [(ngModel)]="utilisateur.role" name="role" required>
+        <option value="USER">User</option>
+        <option value="ADMIN">Admin</option>
+        <option value="QUALITE">Qualité</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a routerLink="/utilisateurs" class="btn btn-secondary ms-2">Annuler</a>
+  </form>
+</div>

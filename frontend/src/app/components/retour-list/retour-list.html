@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <h2>Liste des Retours Produits</h2>
+  <a routerLink="/retours/ajouter" class="btn btn-success mb-3">+ Ajouter</a>
+
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+
+  <div *ngIf="retourATraiter" class="card mb-3 border-warning">
+    <div class="card-header bg-warning">
+      Traitement du retour #{{ retourATraiter.id }} — {{ retourATraiter.produit }}
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Employé qualité</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="employeQualite"
+               placeholder="Nom de l'employé">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Décision</label>
+        <select class="form-control" [(ngModel)]="nouvelEtat">
+          <option value="Traité">Traité</option>
+          <option value="Rejeté">Rejeté</option>
+          <option value="Retourné en stock">Retourné en stock</option>
+        </select>
+      </div>
+      <button class="btn btn-success me-2"
+              (click)="validerTraitement()">Valider</button>
+      <button class="btn btn-secondary"
+              (click)="annulerTraitement()">Annuler</button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Produit</th>
+        <th>Client</th>
+        <th>Raison</th>
+        <th>État</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let retour of retours">
+        <td>{{ retour.id }}</td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id">{{ retour.produit }}</span>
+          <input *ngIf="retourEnEdition?.id === retour.id" class="form-control" [(ngModel)]="retourEnEdition!.produit">
+        </td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id">{{ retour.client }}</span>
+          <input *ngIf="retourEnEdition?.id === retour.id" class="form-control" [(ngModel)]="retourEnEdition!.client">
+        </td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id">{{ retour.raison }}</span>
+          <input *ngIf="retourEnEdition?.id === retour.id" class="form-control" [(ngModel)]="retourEnEdition!.raison">
+        </td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id"
+            class="badge"
+            [class.bg-warning]="retour.etatTraitement === 'En cours'"
+            [class.bg-success]="retour.etatTraitement === 'Traité'"
+            [class.bg-danger]="retour.etatTraitement === 'Rejeté'"
+            [class.bg-info]="retour.etatTraitement === 'Retourné en stock'">
+            {{ retour.etatTraitement }}
+          </span>
+          <select *ngIf="retourEnEdition?.id === retour.id" class="form-control" [(ngModel)]="retourEnEdition!.etatTraitement">
+            <option value="En cours">En cours</option>
+            <option value="Traité">Traité</option>
+            <option value="Rejeté">Rejeté</option>
+            <option value="Retourné en stock">Retourné en stock</option>
+          </select>
+        </td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id">{{ retour.date }}</span>
+          <input *ngIf="retourEnEdition?.id === retour.id" type="date" class="form-control" [(ngModel)]="retourEnEdition!.date">
+        </td>
+        <td>
+          <span *ngIf="retourEnEdition?.id !== retour.id">
+               <button class="btn btn-primary btn-sm me-1"
+                   *ngIf="retour.etatTraitement === 'En cours'"
+                   (click)="ouvrirTraitement(retour)">Traiter</button>
+               <button class="btn btn-warning btn-sm me-1"
+                   (click)="editer(retour)">Modifier</button>
+               <button class="btn btn-danger btn-sm"
+                   (click)="delete(retour.id!)">Supprimer</button>
+          </span>
+          <span *ngIf="retourEnEdition?.id === retour.id">
+            <button class="btn btn-success btn-sm me-1"
+                    (click)="sauvegarder()">Sauvegarder</button>
+            <button class="btn btn-secondary btn-sm"
+                    (click)="annulerEdition()">Annuler</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="retours.length === 0">Aucun retour trouvé.</p>
+</div>

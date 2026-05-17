@@ -1,0 +1,61 @@
+<div class="container mt-4">
+  <h2>Liste des Non-Conformités</h2>
+  <a routerLink="/nonconformites/ajouter" class="btn btn-success mb-3">+ Ajouter</a>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Gravité</th>
+        <th>Date</th>
+        <th>Produit</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nc of nonConformites">
+        <ng-container *ngIf="ncEnEdition?.id !== nc.id">
+          <td>{{ nc.id }}</td>
+          <td>{{ nc.description }}</td>
+          <td>
+            <span class="badge"
+              [class.bg-danger]="nc.gravite === 'élevée'"
+              [class.bg-warning]="nc.gravite === 'moyenne'"
+              [class.bg-success]="nc.gravite === 'faible'">
+              {{ nc.gravite }}
+            </span>
+          </td>
+          <td>{{ nc.date }}</td>
+          <td>{{ nc.produit }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm me-1"
+                    (click)="editer(nc)">Modifier</button>
+            <button class="btn btn-danger btn-sm"
+                    (click)="delete(nc.id!)">Supprimer</button>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="ncEnEdition?.id === nc.id">
+          <td>{{ nc.id }}</td>
+          <td><input class="form-control" [(ngModel)]="ncEnEdition!.description"></td>
+          <td>
+            <select class="form-control" [(ngModel)]="ncEnEdition!.gravite">
+              <option value="faible">Faible</option>
+              <option value="moyenne">Moyenne</option>
+              <option value="élevée">Élevée</option>
+            </select>
+          </td>
+          <td><input type="date" class="form-control" [(ngModel)]="ncEnEdition!.date"></td>
+          <td><input class="form-control" [(ngModel)]="ncEnEdition!.produit"></td>
+          <td>
+            <button class="btn btn-success btn-sm me-1"
+                    (click)="sauvegarder()">Sauvegarder</button>
+            <button class="btn btn-secondary btn-sm"
+                    (click)="annulerEdition()">Annuler</button>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="nonConformites.length === 0">Aucune non-conformité trouvée.</p>
+</div>
