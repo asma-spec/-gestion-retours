@@ -1,3 +1,10 @@
+/**
+ * Service pour la gestion des retours produits.
+ * Contient la logique métier :
+ * - Création automatique d'un HistoriqueRetour lors du traitement
+ * - Mise à jour du stock si état = "Retourné en stock"
+ * - Suppression des historiques liés avant suppression du retour
+ */
 package com.gestionretours.retours.service;
 
 import java.time.LocalDate;

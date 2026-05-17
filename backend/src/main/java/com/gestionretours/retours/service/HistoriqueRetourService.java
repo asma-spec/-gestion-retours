@@ -1,3 +1,8 @@
+/**
+ * Service pour la gestion de l'historique des retours.
+ * Permet de tracer toutes les actions effectuées sur les retours.
+ * Recherche par retourId pour voir l'historique d'un retour spécifique.
+ */
 package com.gestionretours.retours.service;
 
 import java.util.List;

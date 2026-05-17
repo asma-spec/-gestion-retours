@@ -1,3 +1,8 @@
+/**
+ * Service pour la gestion des utilisateurs.
+ * Contient les opérations CRUD pour les utilisateurs.
+ * Rôles : ADMIN, USER, QUALITE.
+ */
 package com.gestionretours.retours.service;
 
 import java.util.List;
