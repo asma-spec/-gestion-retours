@@ -1,3 +1,13 @@
+/**
+ * Controller REST pour la gestion des retours produits.
+ * Endpoints :
+ * GET    /api/retours         - Liste tous les retours
+ * GET    /api/retours/{id}    - Récupère un retour par id
+ * POST   /api/retours         - Crée un nouveau retour
+ * PUT    /api/retours/{id}    - Modifie un retour
+ * PUT    /api/retours/{id}/traiter - Traite un retour (service qualité)
+ * DELETE /api/retours/{id}    - Supprime un retour
+ */
 package com.gestionretours.retours.controller;
 
 import java.util.List;

@@ -1,3 +1,7 @@
+/**
+ * Controller REST pour la gestion des non-conformités.
+ * Endpoints CRUD : /api/nonconformites
+ */
 package com.gestionretours.retours.controller;
 
 import java.util.List;

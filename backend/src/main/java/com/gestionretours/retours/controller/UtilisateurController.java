@@ -1,3 +1,7 @@
+/**
+ * Controller REST pour la gestion des utilisateurs.
+ * Endpoints CRUD : /api/utilisateurs
+ */
 package com.gestionretours.retours.controller;
 
 import java.util.List;

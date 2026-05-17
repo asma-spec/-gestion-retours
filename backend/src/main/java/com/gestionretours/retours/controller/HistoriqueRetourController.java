@@ -1,3 +1,8 @@
+/**
+ * Controller REST pour la gestion de l'historique.
+ * Endpoints : /api/historiques
+ * GET /api/historiques/retour/{retourId} - Historique d'un retour spécifique
+ */
 package com.gestionretours.retours.controller;
 
 import java.util.List;
