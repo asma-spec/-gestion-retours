@@ -1,3 +1,7 @@
+/**
+ * DTO pour NonConformite.
+ * Utilisé pour transférer les données de non-conformité.
+ */
 package com.gestionretours.retours.dto;
 
 import java.time.LocalDate;
