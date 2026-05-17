@@ -1,10 +1,3 @@
-/**
- * Mapper pour convertir RetourProduit ↔ RetourProduitDTO.
- * Utilise ModelMapper pour la conversion automatique.
- * toDto() : Entity → DTO
- * fromDto() : DTO → Entity
- * toListDto() : List<Entity> → List<DTO>
- */
 package com.gestionretours.retours.mapper;
 
 import org.modelmapper.ModelMapper;

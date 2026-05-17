@@ -1,7 +1,3 @@
-/**
- * Entité représentant un retour produit d'un client.
- * Liée à la table retour_produit dans MySQL.
- */
 package com.gestionretours.retours.entities;
 
 import java.time.LocalDate;

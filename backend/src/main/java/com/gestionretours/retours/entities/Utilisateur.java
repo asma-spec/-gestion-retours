@@ -1,7 +1,3 @@
-/**
- * Entité représentant un utilisateur du système.
- * Rôles possibles : ADMIN, USER, QUALITE.
- */
 package com.gestionretours.retours.entities;
 
 import jakarta.persistence.*;

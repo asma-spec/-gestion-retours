@@ -1,7 +1,3 @@
-/**
- * Service pour la gestion des non-conformités.
- * Contient les opérations CRUD pour les non-conformités.
- */
 package com.gestionretours.retours.service;
 
 import java.util.List;

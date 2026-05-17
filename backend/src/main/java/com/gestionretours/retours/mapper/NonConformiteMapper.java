@@ -1,7 +1,3 @@
-/**
- * Mapper pour convertir NonConformite ↔ NonConformiteDTO.
- * Utilise ModelMapper pour la conversion automatique.
- */
 package com.gestionretours.retours.mapper;
 
 import org.modelmapper.ModelMapper;

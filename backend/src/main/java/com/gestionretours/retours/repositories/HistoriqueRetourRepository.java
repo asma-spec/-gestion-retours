@@ -1,8 +1,3 @@
-/**
- * Repository pour HistoriqueRetour.
- * Hérite de JpaRepository pour les opérations CRUD automatiques.
- * findByRetourId() : requête personnalisée générée automatiquement par Spring JPA.
- */
 package com.gestionretours.retours.repositories;
 
 import java.util.List;

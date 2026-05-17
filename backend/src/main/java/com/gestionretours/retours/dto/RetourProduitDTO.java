@@ -1,8 +1,3 @@
-/**
- * DTO pour RetourProduit.
- * Utilisé pour transférer les données entre le backend et le frontend.
- * Ne contient pas les données sensibles comme quantiteStock.
- */
 package com.gestionretours.retours.dto;
 
 import java.time.LocalDate;

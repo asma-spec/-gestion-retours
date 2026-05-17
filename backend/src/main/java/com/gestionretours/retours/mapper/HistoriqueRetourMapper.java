@@ -1,7 +1,3 @@
-/**
- * Mapper pour convertir HistoriqueRetour ↔ HistoriqueRetourDTO.
- * Gère manuellement le mapping de retourId depuis l'objet RetourProduit.
- */
 package com.gestionretours.retours.mapper;
 
 import java.util.List;

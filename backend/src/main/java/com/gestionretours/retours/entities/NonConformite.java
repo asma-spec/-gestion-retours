@@ -1,7 +1,3 @@
-/**
- * Entité représentant une non-conformité détectée sur un produit retourné.
- * Liée à la table non_conformite dans MySQL.
- */
 package com.gestionretours.retours.entities;
 
 import java.time.LocalDate;

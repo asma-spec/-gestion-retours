@@ -1,8 +1,3 @@
-/**
- * DTO pour HistoriqueRetour.
- * Contient retourId au lieu de l'objet RetourProduit complet
- * pour éviter les références circulaires.
- */
 package com.gestionretours.retours.dto;
 
 import java.time.LocalDate;

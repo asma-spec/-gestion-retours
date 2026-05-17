@@ -1,7 +1,3 @@
-/**
- * DTO pour Utilisateur.
- * Utilisé pour transférer les données utilisateur.
- */
 package com.gestionretours.retours.dto;
 
 import lombok.Data;
