@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-retours
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestionretours
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - retours-network
+
+  backend:
+    build: ./backend
+    container_name: backend-retours
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/gestionretours?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql
+    networks:
+      - retours-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-retours
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - retours-network
+
+volumes:
+  mysql-data:
+
+networks:
+  retours-network:
+    driver: bridge
