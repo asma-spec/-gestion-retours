@@ -1,4 +1,4 @@
-# Système de Gestion des Retours
+# 🔄 Système de Gestion des Retours
 
 ## Description
 Application web complète pour gérer les retours de produits dans une entreprise.
@@ -64,16 +64,22 @@ gestion-retours/
 - **Utilisateur** (id, nom, email, rôle)
 - **HistoriqueRetour** (id, retour, action, employé, date)
 
+## URLs de Production (Google Cloud Platform)
+| Service | URL |
+|---------|-----|
+| Frontend | https://frontend-retours-1080011468081.europe-west1.run.app |
+| Backend API | https://backend-retours-1080011468081.europe-west1.run.app |
+| Swagger UI | https://backend-retours-1080011468081.europe-west1.run.app/swagger-ui/index.html |
+
 ## Installation et Exécution
 
-### Prérequis
+### Option 1 — Lancement Manuel
+
+#### Prérequis
 - Java 17
 - Node.js 20+
 - MySQL (XAMPP)
 - Angular CLI
-- Docker Desktop (pour le déploiement Docker)
-
-### Option 1 — Lancement Manuel
 
 #### Backend
 ```bash
@@ -104,7 +110,7 @@ ng serve --port 4201 --open
 
 #### Lancement
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 
 #### Accès avec Docker
@@ -113,18 +119,23 @@ docker-compose up --build
 | Frontend | http://localhost:80 |
 | Backend API | http://localhost:8080 |
 | Swagger UI | http://localhost:8080/swagger-ui/index.html |
-| MySQL | localhost:3306 |
 
 #### Arrêter Docker
 ```bash
 docker-compose down
 ```
+## URLs de Production (Google Cloud Platform)
+| Service | URL |
+|---------|-----|
+| Frontend | https://frontend-retours-1080011468081.europe-west1.run.app |
+| Backend API | https://backend-retours-1080011468081.europe-west1.run.app |
+| Swagger UI | https://backend-retours-1080011468081.europe-west1.run.app/swagger-ui/index.html |
 
----
+## Docker Hub
+- Backend : `asmmaa/gestion-retours-backend:1.0`
+- Frontend : `asmmaa/gestion-retours-frontend:gcp2`
 
-## Documentation API
-Swagger UI disponible sur :
-http://localhost:8080/swagger-ui/index.html
-
-## Repository Git
-https://github.com/asma-spec/-gestion-retours
+## Déploiement Cloud
+L'application est déployée sur Google Cloud Platform :
+- **Cloud Run** — Backend Spring Boot et Frontend Angular
+- **Cloud SQL** — MySQL 8.0 (europe-west1)
