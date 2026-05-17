@@ -1,3 +1,7 @@
+/**
+ * Entité représentant l'historique des actions sur un retour.
+ * Créée automatiquement lors du traitement d'un retour.
+ */
 package com.gestionretours.retours.entities;
 
 import java.time.LocalDate;
