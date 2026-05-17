@@ -15,7 +15,7 @@ export interface NonConformite {
 })
 export class NonConformiteService {
 
-  private apiUrl = 'http://localhost:8080/api/nonconformites';
+  private apiUrl = '/api/nonconformites';
 
   constructor(private http: HttpClient) {}
 

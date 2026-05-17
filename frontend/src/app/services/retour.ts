@@ -22,7 +22,7 @@ export interface TraitementRequest {
 })
 export class RetourService {
 
-  private apiUrl = 'http://localhost:8080/api/retours';
+  private apiUrl = '/api/retours';
 
   constructor(private http: HttpClient) {}
 

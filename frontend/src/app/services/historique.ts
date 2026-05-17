@@ -15,7 +15,7 @@ export interface HistoriqueRetour {
 })
 export class HistoriqueService {
 
-  private apiUrl = 'http://localhost:8080/api/historiques';
+  private apiUrl = '/api/historiques';
 
   constructor(private http: HttpClient) {}
 

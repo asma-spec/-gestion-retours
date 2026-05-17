@@ -9,14 +9,18 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: gestionretours
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
       - retours-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
   backend:
-    build: ./backend
+    image: asmmaa/gestion-retours-backend:1.0
     container_name: backend-retours
     ports:
       - "8080:8080"
@@ -25,12 +29,13 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - retours-network
 
   frontend:
-    build: ./frontend
+    image: asmmaa/gestion-retours-frontend:1.0
     container_name: frontend-retours
     ports:
       - "80:80"
