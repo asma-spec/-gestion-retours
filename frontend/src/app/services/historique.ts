@@ -15,7 +15,7 @@ export interface HistoriqueRetour {
 })
 export class HistoriqueService {
 
-  private apiUrl = '/api/historiques';
+  private apiUrl = 'https://backend-retours-1080011468081.europe-west1.run.app/api/historiques';
 
   constructor(private http: HttpClient) {}
 

@@ -14,7 +14,7 @@ export interface Utilisateur {
 })
 export class UtilisateurService {
 
-  private apiUrl = '/api/utilisateurs';
+  private apiUrl = 'https://backend-retours-1080011468081.europe-west1.run.app/api/utilisateurs';
 
   constructor(private http: HttpClient) {}
 

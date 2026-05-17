@@ -22,7 +22,7 @@ export interface TraitementRequest {
 })
 export class RetourService {
 
-  private apiUrl = '/api/retours';
+  private apiUrl = 'https://backend-retours-1080011468081.europe-west1.run.app/api/retours';
 
   constructor(private http: HttpClient) {}
 

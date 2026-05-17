@@ -15,7 +15,7 @@ export interface NonConformite {
 })
 export class NonConformiteService {
 
-  private apiUrl = '/api/nonconformites';
+  private apiUrl = 'https://backend-retours-1080011468081.europe-west1.run.app/api/nonconformites';
 
   constructor(private http: HttpClient) {}
 
